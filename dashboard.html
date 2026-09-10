@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People Tech - Inicio</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body class="app-body">
+
+  
+  <div id="header-placeholder"></div>
+
+  <div class="app-layout">
+    
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main-content">
+      <h1 class="page-title">Hola, Grecia</h1>
+      <p class="page-subtitle">Este es el resumen de tu información laboral al día de hoy.</p>
+
+      
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span>Último pago neto</span>
+            <i class="bi bi-cash-coin"></i>
+          </div>
+          <div class="stat-value">$19,610.00</div>
+          <div class="stat-note">16 – 31 ago 2026</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span>Días de vacaciones</span>
+            <i class="bi bi-airplane-fill"></i>
+          </div>
+          <div class="stat-value">10 disponibles</div>
+          <div class="stat-note">6 tomados este año</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span>Documentos</span>
+            <i class="bi bi-folder2-open"></i>
+          </div>
+          <div class="stat-value">8 archivos</div>
+          <div class="stat-note">Expediente digital</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span>Número de RH</span>
+            <i class="bi bi-life-preserver"></i>
+          </div>
+          <div class="stat-value">81 8000 4455</div>
+          <div class="stat-note">Ext. 204</div>
+        </div>
+      </div>
+
+      
+      <div class="panels-row">
+        <div class="panel panel-payroll">
+          <div class="panel-header">
+            <h2>Últimos recibos de nómina</h2>
+            <a href="nominas.html">Ver todo</a>
+          </div>
+
+          <div class="payroll-row">
+            <div>
+              <div class="payroll-period">16 – 31 ago 2026</div>
+              <div class="payroll-date">Pagado el 31/08/2026</div>
+            </div>
+            <div class="payroll-amount">$19,610.00</div>
+          </div>
+
+          <div class="payroll-row">
+            <div>
+              <div class="payroll-period">01 – 15 ago 2026</div>
+              <div class="payroll-date">Pagado el 15/08/2026</div>
+            </div>
+            <div class="payroll-amount">$19,610.00</div>
+          </div>
+
+          <div class="payroll-row">
+            <div>
+              <div class="payroll-period">16 – 31 jul 2026</div>
+              <div class="payroll-date">Pagado el 31/07/2026</div>
+            </div>
+            <div class="payroll-amount">$20,780.00</div>
+          </div>
+
+          <div class="payroll-row">
+            <div>
+              <div class="payroll-period">01 – 15 jul 2026</div>
+              <div class="payroll-date">Pagado el 15/07/2026</div>
+            </div>
+            <div class="payroll-amount">$19,610.00</div>
+          </div>
+        </div>
+
+        <div class="panel panel-vacation">
+          <div class="panel-header">
+            <h2>Vacaciones</h2>
+            <a href="vacaciones.html">Solicitar</a>
+          </div>
+
+          <div class="vacation-highlight">
+            <div class="vacation-number">10</div>
+            <div class="vacation-label">días disponibles de 16</div>
+          </div>
+
+          <div class="vacation-row">
+            <span>21/12/2026 – 25/12/2026</span>
+            <span class="badge-status badge-pending">Pendiente</span>
+          </div>
+          <div class="vacation-row">
+            <span>15/04/2026 – 17/04/2026</span>
+            <span class="badge-status badge-approved">Aprobada</span>
+          </div>
+          <div class="vacation-row">
+            <span>02/01/2026 – 04/01/2026</span>
+            <span class="badge-status badge-approved">Aprobada</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="navbar.js"></script>
+</body>
+</html>

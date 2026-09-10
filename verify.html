@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People Tech - Verificación en Dos Pasos</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+
+  <div class="login-page d-flex align-items-center justify-content-center">
+    <div class="login-wrapper">
+
+      <div class="login-card">
+        
+        <div class="d-flex align-items-center brand-row">
+          <div class="brand-icon">PT</div>
+          <span class="brand-name">People Tech</span>
+        </div>
+
+        
+        <h1 class="login-title">Verificación en dos pasos</h1>
+        <p class="login-subtitle">Escribe el código de 6 dígitos de tu app de autenticación.</p>
+
+        
+        <div class="info-box d-flex">
+          <i class="bi bi-info-circle-fill info-icon"></i>
+          <p class="mb-0">
+            Abre tu app de autenticación (Google Authenticator, Authy o Microsoft Authenticator) y captura el código vigente.
+          </p>
+        </div>
+
+        <form id="verifyForm">
+          <label class="form-label">Código de verificación</label>
+
+          <div class="code-input-group d-flex align-items-center justify-content-between mb-4">
+            <div class="code-digits d-flex">
+              <input type="text" inputmode="numeric" maxlength="1" class="code-digit" data-index="0">
+              <input type="text" inputmode="numeric" maxlength="1" class="code-digit" data-index="1">
+              <input type="text" inputmode="numeric" maxlength="1" class="code-digit" data-index="2">
+              <input type="text" inputmode="numeric" maxlength="1" class="code-digit" data-index="3">
+              <input type="text" inputmode="numeric" maxlength="1" class="code-digit" data-index="4">
+              <input type="text" inputmode="numeric" maxlength="1" class="code-digit" data-index="5">
+            </div>
+            <i class="bi bi-key-fill code-key-icon"></i>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-continue w-100 mb-3">
+            Verificar y entrar
+          </button>
+
+          <a href="index.html" class="btn btn-outline-secondary btn-back w-100">
+            Regresar
+          </a>
+        </form>
+      </div>
+
+      <p class="footer-note text-center">Acceso protegido con verificación en dos pasos.</p>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script>
+    
+    const digits = document.querySelectorAll('.code-digit');
+    digits.forEach((input, i) => {
+      input.addEventListener('input', () => {
+        input.value = input.value.replace(/[^0-9]/g, ''); 
+        if (input.value && i < digits.length - 1) {
+          digits[i + 1].focus();
+        }
+      });
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !input.value && i > 0) {
+          digits[i - 1].focus();
+        }
+      });
+    });
+
+    document.getElementById('verifyForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const code = Array.from(digits).map(d => d.value).join('');
+      if (code.length < 6) {
+        alert('Ingresa los 6 dígitos del código.');
+        return;
+      }
+      
+      window.location.href = 'dashboard.html';
+    });
+  </script>
+</body>
+</html>
