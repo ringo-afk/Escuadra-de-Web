@@ -1,0 +1,204 @@
+/* =========================================
+   styles de la pagina de Nóminas
+   ========================================= */
+
+/* ocupo editar las 3 cajas para que 
+esten mas en el centro y se estiren horizontalmente con la pagina  */
+.stats-row-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+.panel-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.filters-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.filter-group .form-select {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  padding: 10px 14px;
+  font-size: 15px;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-white);
+}
+
+.filter-group .form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
+  outline: none;
+}
+
+.btn-outline-clear {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-white);
+  border-radius: var(--radius-sm);
+  padding: 10px 18px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-text-medium);
+  white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-outline-clear:hover {
+  background-color: var(--color-bg-hover);
+}
+
+
+.bulk-download-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background-color: var(--color-bg-page);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  flex-wrap: wrap;
+}
+
+.bulk-download-row span {
+  color: var(--color-text-medium);
+  font-size: 15px;
+}
+
+.btn-primary-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-primary);
+  color: var(--color-bg-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 11px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.btn-primary-action:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-primary-action:disabled {
+  background-color: #b7bdf2;
+  cursor: not-allowed;
+}
+
+
+.panel-table {
+  padding: 0;
+  overflow: hidden;
+}
+
+.payroll-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.payroll-table thead th {
+  text-align: left;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: var(--color-text-light);
+  font-weight: 700;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.payroll-table tbody td {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--color-border-light);
+  font-size: 15px;
+  color: var(--color-text-dark);
+}
+
+.payroll-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.payroll-table tbody tr:hover {
+  background-color: var(--color-bg-hover);
+}
+
+.payroll-table .payroll-period {
+  font-weight: 600;
+}
+
+.payroll-table .payroll-amount {
+  font-weight: 700;
+}
+
+.payroll-table .text-deduction {
+  color: #c0392b;
+}
+
+.col-check {
+  width: 44px;
+}
+
+.col-pdf {
+  text-align: right;
+  width: 110px;
+}
+
+.btn-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-bg-page);
+  color: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-weight: 600;
+  font-size: 13.5px;
+  transition: background 0.15s ease;
+}
+
+.btn-pdf:hover {
+  background-color: #e2e6f9;
+}
+
+/* creo que aqui tmb esta el rpoblema de las 3 cajas*/
+@media (max-width: 900px) {
+  .stats-row-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .filters-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .payroll-table {
+    display: block;
+    overflow-x: auto;
+  }
+}

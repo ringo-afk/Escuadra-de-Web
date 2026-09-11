@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People Tech - Nóminas</title>
+ 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="stylesheet" href="styles/nominas.css">
+</head>
+<body class="app-body">
+ 
+  <div id="header-placeholder"></div>
+ 
+  <div class="app-layout">
+ 
+    <div id="sidebar-placeholder"></div>
+ 
+    <main class="main-content">
+      <h1 class="page-title">Nóminas</h1>
+      <p class="page-subtitle">Filtra por periodo y descarga uno o varios recibos a la vez.</p>
+ 
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span>Depositado (filtro actual)</span>
+          </div>
+          <div class="stat-value" id="totalDepositado">$284,820.00</div>
+        </div>
+ 
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span>Cuenta de depósito</span>
+          </div>
+          <div class="stat-value">BBVA •••• 4471</div>
+        </div>
+ 
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span>Recibos mostrados</span>
+          </div>
+          <div class="stat-value" id="totalRecibos">14</div>
+        </div>
+      </div>
+ 
+      <div class="panel panel-filters">
+        <div class="filters-row">
+          <div class="filter-group">
+            <label for="filtroAnio">Año</label>
+            <select id="filtroAnio" class="form-select">
+              <option value="todos" selected>Todos los años</option>
+              <option value="2026">2026</option>
+              <option value="2025">2025</option>
+            </select>
+          </div>
+ 
+          <div class="filter-group">
+            <label for="filtroMes">Mes</label>
+            <select id="filtroMes" class="form-select">
+              <option value="todos" selected>Todos los meses</option>
+              <option value="01">Enero</option>
+              <option value="02">Febrero</option>
+              <option value="03">Marzo</option>
+              <option value="04">Abril</option>
+              <option value="05">Mayo</option>
+              <option value="06">Junio</option>
+              <option value="07">Julio</option>
+              <option value="08">Agosto</option>
+              <option value="09">Septiembre</option>
+              <option value="10">Octubre</option>
+              <option value="11">Noviembre</option>
+              <option value="12">Diciembre</option>
+            </select>
+          </div>
+ 
+          <button type="button" class="btn-outline-clear" id="btnLimpiarFiltros">Limpiar filtros</button>
+        </div>
+ 
+        <div class="bulk-download-row">
+          <span>Selecciona los recibos que quieras descargar en bloque.</span>
+          <button type="button" class="btn-primary-action" id="btnDescargarSeleccionadas">
+            <i class="bi bi-download"></i> Descargar seleccionadas
+          </button>
+        </div>
+      </div>
+ 
+      <div class="panel panel-table">
+        <table class="payroll-table">
+          <thead>
+            <tr>
+              <th class="col-check"><input type="checkbox" id="checkAll"></th>
+              <th>PERIODO</th>
+              <th>FECHA DE PAGO</th>
+              <th>PERCEPCIONES</th>
+              <th>DEDUCCIONES</th>
+              <th>NETO</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="payrollTableBody">
+            <tr data-anio="2026" data-mes="08">
+              <td class="col-check"><input type="checkbox" class="row-check"></td>
+              <td class="payroll-period">16 – 31 ago 2026</td>
+              <td>31/08/2026</td>
+              <td>$24,500.00</td>
+              <td class="text-deduction">-$4,890.00</td>
+              <td class="payroll-amount">$19,610.00</td>
+              <td class="col-pdf"><button class="btn-pdf" type="button"><i class="bi bi-download"></i> PDF</button></td>
+            </tr>
+            <tr data-anio="2026" data-mes="08">
+              <td class="col-check"><input type="checkbox" class="row-check"></td>
+              <td class="payroll-period">01 – 15 ago 2026</td>
+              <td>15/08/2026</td>
+              <td>$24,500.00</td>
+              <td class="text-deduction">-$4,890.00</td>
+              <td class="payroll-amount">$19,610.00</td>
+              <td class="col-pdf"><button class="btn-pdf" type="button"><i class="bi bi-download"></i> PDF</button></td>
+            </tr>
+            <tr data-anio="2026" data-mes="07">
+              <td class="col-check"><input type="checkbox" class="row-check"></td>
+              <td class="payroll-period">16 – 31 jul 2026</td>
+              <td>31/07/2026</td>
+              <td>$26,100.00</td>
+              <td class="text-deduction">-$5,320.00</td>
+              <td class="payroll-amount">$20,780.00</td>
+              <td class="col-pdf"><button class="btn-pdf" type="button"><i class="bi bi-download"></i> PDF</button></td>
+            </tr>
+            <tr data-anio="2026" data-mes="07">
+              <td class="col-check"><input type="checkbox" class="row-check"></td>
+              <td class="payroll-period">01 – 15 jul 2026</td>
+              <td>15/07/2026</td>
+              <td>$24,500.00</td>
+              <td class="text-deduction">-$4,890.00</td>
+              <td class="payroll-amount">$19,610.00</td>
+              <td class="col-pdf"><button class="btn-pdf" type="button"><i class="bi bi-download"></i> PDF</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="navbar.js"></script>
+  <script src="nominas.js"></script>
+</body>
+</html>
+ 

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People Tech - Vacaciones</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="stylesheet" href="styles/vacaciones.css">
+</head>
+<body class="app-body">
+
+  <div id="header-placeholder"></div>
+
+  <div class="app-layout">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main-content">
+      <h1 class="page-title">Vacaciones</h1>
+      <p class="page-subtitle">Solicita tus días y consulta el estado de cada petición.</p>
+
+      <div class="vacation-layout">
+
+        <div class="panel">
+          <div class="panel-header"><h2>Nueva solicitud</h2></div>
+
+          <div class="vacation-highlight mb-4">
+            <div class="vacation-number" id="diasDisponibles">10</div>
+            <div class="vacation-label">días disponibles</div>
+          </div>
+
+          <form id="formSolicitud" class="d-flex flex-column gap-3">
+            <div>
+              <label for="fechaInicio" class="form-label fw-semibold">Inicio</label>
+              <input type="date" id="fechaInicio" name="fechaInicio" class="form-control" required>
+            </div>
+            <div>
+              <label for="fechaRegreso" class="form-label fw-semibold">Regreso</label>
+              <input type="date" id="fechaRegreso" name="fechaRegreso" class="form-control" required>
+            </div>
+            <div>
+              <label for="motivo" class="form-label fw-semibold">Motivo</label>
+              <textarea id="motivo" name="motivo" class="form-control" rows="3" placeholder="Descanso, asuntos personales..."></textarea>
+            </div>
+            <div class="alert alert-danger d-none mb-0" id="formAlert" role="alert"></div>
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">
+              <i class="bi bi-calendar-check"></i> Enviar solicitud
+            </button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header"><h2>Historial de solicitudes</h2></div>
+
+          <div class="list-group list-group-flush" id="historyList">
+
+            <div class="list-group-item">
+              <div class="history-item-main">
+                <div class="history-item-title">
+                  <button type="button" class="btn-calendar-view" data-start="2026-12-21" data-end="2026-12-25" aria-label="Ver calendario"><i class="bi bi-calendar3"></i></button>
+                  <span>21/12/2026 – 25/12/2026 · <strong>4</strong> día(s)</span>
+                </div>
+                <span class="badge-status badge-pending">Pendiente</span>
+              </div>
+              <div class="history-item-meta">Descanso: <strong>4 día(s)</strong> · Fin de semana: <strong>0 día(s)</strong> · Festivos: <strong>1 día(s)</strong> · Total: <strong class="meta-total">5 día(s)</strong></div>
+              <div class="history-item-motivo">Fin de año con familia</div>
+            </div>
+
+            <div class="list-group-item">
+              <div class="history-item-main">
+                <div class="history-item-title">
+                  <button type="button" class="btn-calendar-view" data-start="2026-04-15" data-end="2026-04-17" aria-label="Ver calendario"><i class="bi bi-calendar3"></i></button>
+                  <span>15/04/2026 – 17/04/2026 · <strong>3</strong> día(s)</span>
+                </div>
+                <span class="badge-status badge-approved">Aprobada</span>
+              </div>
+              <div class="history-item-meta">Descanso: <strong>3 día(s)</strong> · Fin de semana: <strong>0 día(s)</strong> · Festivos: <strong>0 día(s)</strong> · Total: <strong class="meta-total">3 día(s)</strong></div>
+              <div class="history-item-motivo">Asuntos personales</div>
+            </div>
+
+            <div class="list-group-item">
+              <div class="history-item-main">
+                <div class="history-item-title">
+                  <button type="button" class="btn-calendar-view" data-start="2026-01-02" data-end="2026-01-04" aria-label="Ver calendario"><i class="bi bi-calendar3"></i></button>
+                  <span>02/01/2026 – 04/01/2026 · <strong>1</strong> día(s)</span>
+                </div>
+                <span class="badge-status badge-approved">Aprobada</span>
+              </div>
+              <div class="history-item-meta">Descanso: <strong>1 día(s)</strong> · Fin de semana: <strong>2 día(s)</strong> · Festivos: <strong>0 día(s)</strong> · Total: <strong class="meta-total">3 día(s)</strong></div>
+              <div class="history-item-motivo">Descanso</div>
+            </div>
+
+            <div class="list-group-item">
+              <div class="history-item-main">
+                <div class="history-item-title">
+                  <button type="button" class="btn-calendar-view" data-start="2025-11-10" data-end="2025-11-10" aria-label="Ver calendario"><i class="bi bi-calendar3"></i></button>
+                  <span>10/11/2025 – 10/11/2025 · <strong>1</strong> día(s)</span>
+                </div>
+                <span class="badge-status badge-rejected">Rechazada</span>
+              </div>
+              <div class="history-item-meta">Descanso: <strong>1 día(s)</strong> · Fin de semana: <strong>0 día(s)</strong> · Festivos: <strong>0 día(s)</strong> · Total: <strong class="meta-total">1 día(s)</strong></div>
+              <div class="history-item-motivo">Cierre de mes</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="navbar.js"></script>
+  <script src="calendario.js"></script>
+  <script src="vacaciones.js"></script>
+</body>
+</html>
